@@ -283,21 +283,6 @@
                 <small>Faculty, <asp:Label ID="lblCollegeName" runat="server"></asp:Label></small>
             </p>
             </li>
-            <!-- Menu Body -->
-            <li class="user-body">
-            <div class="row">
-                <div class="col-xs-4 text-center">
-                <a href="#">Followers</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                <a href="#">Sales</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                <a href="#">Friends</a>
-                </div>
-            </div>
-            <!-- /.row -->
-            </li>
             <!-- Menu Footer-->
             <li class="user-footer">
             <div class="pull-left">
@@ -357,22 +342,6 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-users"></i>
-            <span>Users</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="users_admins.aspx"><i class="fa fa-circle-o"></i> Administrators</a></li>
-            <li><a href="users_faculty.aspx"><i class="fa fa-circle-o"></i> Faculty</a></li>
-            <li><a href="users_students.aspx?mode=active"><i class="fa fa-circle-o"></i> Students</a></li>
-            <li><a href="users_visitors.aspx"><i class="fa fa-circle-o"></i> Visitors</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
             <i class="fa fa-book"></i> <span>Thesis</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -383,15 +352,6 @@
             <li><a href="thesis.aspx?type=masters"><i class="fa fa-industry"></i> Masteral</a></li>
             <li><a href="thesis.aspx?type=doctors"><i class="fa fa-institution"></i> Doctorate</a></li>
           </ul>
-        </li>
-
-        <li>
-          <a href="reports.aspx">
-            <i class="fa fa-th"></i> <span>Reports</span>
-            <%--<span class="pull-right-container">
-              <small class="label pull-right bg-green">find match</small>
-            </span>--%>
-          </a>
         </li>
 
       </ul>
