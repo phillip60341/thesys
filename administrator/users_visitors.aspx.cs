@@ -66,7 +66,8 @@ public partial class administrator_users_visitors : System.Web.UI.Page
         UTF8Encoding encoder = new UTF8Encoding();
         hashedBytes = md5Hasher.ComputeHash(encoder.GetBytes(add_txtPassword.Text.ToString()));
 
-        string addQuery = "INSERT INTO tblUsers(user_name,last_name,first_name,middle_name,active,type,date_added,expiry_date) VALUES(@user_name,@last_name,@first_name,@middle_name,1,'Visitor',GETDATE(),GETDATE())";
+        //string addQuery = "INSERT INTO tblUsers(user_name,last_name,first_name,middle_name,active,type,date_added,expiry_date) VALUES(@user_name,@last_name,@first_name,@middle_name,1,'Visitor',GETDATE(),GETDATE())";
+        string addQuery = "INSERT INTO tblUsers(user_name,last_name,first_name,middle_name,active,type,date_added,expiry_date) VALUES(@user_name,@last_name,@first_name,@middle_name,1,'Visitor',GETDATE(),DATEADD(DAY,30,GETDATE()))";
         string[] addParameters = {"@user_name","@last_name","@first_name","@middle_name"};
         string[] addValues = {username,last_name,first_name,middle_name};
 

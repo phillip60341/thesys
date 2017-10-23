@@ -99,7 +99,7 @@
         <Columns>
             <asp:TemplateField HeaderText="Thesis Title">
                 <ItemTemplate>
-                    <asp:HiddenField ID="hdnThesisID" runat="server" Value='<%# Eval("thesis_id") %>' />
+                    <asp:HiddenField ID="hdnThesisID" runat="server" Value='<%# Eval("id") %>' />
                     <asp:Label ID="lblThesisTitle" runat="server" Text='<%# Eval("title") %>'></asp:Label>
                 </ItemTemplate>
                 <EditItemTemplate>

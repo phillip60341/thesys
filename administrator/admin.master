@@ -356,7 +356,7 @@
             <li><a href="users_admins.aspx?mode=active"><i class="fa fa-user-secret"></i> Administrators</a></li>
             <li><a href="users_faculty.aspx?mode=active"><i class="fa fa-user"></i> Faculty</a></li>
             <li><a href="users_students.aspx?mode=active"><i class="fa fa-users"></i> Students</a></li>
-            <li><a href="users_visitors.aspx?mode=active"><i class="fa fa-circle-o"></i> Visitors**</a></li>
+            <li><a href="users_visitors.aspx?mode=active"><i class="fa fa-question-circle"></i> Visitors</a></li>
           </ul>
         </li>
 

@@ -17,28 +17,29 @@ public partial class administrator_thesis : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-           /* string typeOfThesis = "";
-            typeOfThesis = Request.QueryString["type"];
-            switch (typeOfThesis)
-            {
-                case "undergrad":
-                    lblThesisType.Text = "Undergraduate";
-                    break;
+            /* string typeOfThesis = "";
+             typeOfThesis = Request.QueryString["type"];
+             switch (typeOfThesis)
+             {
+                 case "undergrad":
+                     lblThesisType.Text = "Undergraduate";
+                     break;
 
-                case "masters":
-                    lblThesisType.Text = "Masteral";
-                    break;
+                 case "masters":
+                     lblThesisType.Text = "Masteral";
+                     break;
 
-                case "doctors":
-                    lblThesisType.Text = "Doctorate";
-                    break;
+                 case "doctors":
+                     lblThesisType.Text = "Doctorate";
+                     break;
 
-                default:
-                    Response.Redirect("dashboard.aspx");
-                    break; */
+                 default:
+                     Response.Redirect("dashboard.aspx");
+                     break; */
+            DisplayThesis();
         }
 
-            DisplayThesis();
+            
     }
 
     protected void gvThesis_RowEditing(object sender, GridViewEditEventArgs e)
@@ -120,13 +121,14 @@ public partial class administrator_thesis : System.Web.UI.Page
 
     protected void gvThesis_RowArchiving(object sender, GridViewDeleteEventArgs e)
     {
+        Response.Redirect("RowArchiving");
         GridView gv = sender as GridView;
 
         HiddenField hdnThesisID = (HiddenField)gv.Rows[e.RowIndex].FindControl("hdnThesisID");
 
-        string user_id = hdnThesisID.Value.ToString();
+        string thesis_id = hdnThesisID.Value.ToString();
 
-        string query = "UPDATE tblThesis SET status=archived WHERE thesis_id=" + user_id;
+        string query = "UPDATE tblThesis SET status=archived WHERE thesis_id=" + thesis_id;
         ThesysController.QueryExecuteWithParameters(query, new string[0], new string[0]);
         DisplayThesis();
     }
