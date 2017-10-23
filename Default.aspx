@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <!-- Left and right controls -->
+  <!-- Left and right controls 
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
     <span class="sr-only">Previous</span>
@@ -57,7 +57,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
+-->
             </div>
             <div style="background-color:rgba(0,0,0,0.2);border-radius:4px;width:300px;height:600px;position:absolute;padding:25px;left:70%;top:50px;">
                 <h2><center>LOGIN</center></h2><br><br>
