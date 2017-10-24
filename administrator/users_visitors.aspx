@@ -140,10 +140,10 @@ CRUD FOR Visitor--%>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Expiry Date">
                 <ItemTemplate>
-                    <asp:Label ID="lblExpiryDate" runat="server" Text='<%# Eval("expiry_date") %>'></asp:Label>
+                    <asp:Label ID="lblExpiryDate" runat="server" Text='<%# Eval("expiry_date","{0:MMMM dd, yyyy}") %>'></asp:Label>
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:Label ID="e_lblExpiryDate" runat="server" Text='<%# Eval("expiry_date") %>'></asp:Label>
+                    <asp:Label ID="e_lblExpiryDate" runat="server" Text='<%# Eval("expiry_date","{0:MMMM dd, yyyy}") %>'></asp:Label>
                 </EditItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Actions">

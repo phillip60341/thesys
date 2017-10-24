@@ -57,7 +57,7 @@
     <span class="sr-only">Next</span>
   </a>-->
 </div>
-
+-->
             </div>
             <div style="background-color:rgba(0,0,0,0.2);border-radius:4px;width:300px;height:600px;position:absolute;padding:25px;left:70%;top:50px;">
                 <h2><center>LOGIN</center></h2><br><br>

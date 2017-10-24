@@ -70,7 +70,8 @@ public partial class administrator_users_students : System.Web.UI.Page
         UTF8Encoding encoder = new UTF8Encoding();
         hashedBytes = md5Hasher.ComputeHash(encoder.GetBytes(add_txtPassword.Text.ToString()));
 
-        query = "INSERT INTO tblUsers(user_name,last_name,first_name,middle_name,expiry_date,type,id_number,college_id,program_id,active,date_added) VALUES(@user_name,@last_name,@first_name,@middle_name,GETDATE(),'Student',@id_number,@college_id,@program_id,1,GETDATE())";
+        //query = "INSERT INTO tblUsers(user_name,last_name,first_name,middle_name,expiry_date,type,id_number,college_id,program_id,active,date_added) VALUES(@user_name,@last_name,@first_name,@middle_name,GETDATE(),'Student',@id_number,@college_id,@program_id,1,GETDATE())";
+        query = "INSERT INTO tblUsers(user_name,last_name,first_name,middle_name,expiry_date,type,id_number,college_id,program_id,active,date_added) VALUES(@user_name,@last_name,@first_name,@middle_name,DATEADD(DAY,30,GETDATE()),'Student',@id_number,@college_id,@program_id,1,GETDATE())";
         string[] parameters = {"@user_name","@last_name","@first_name","@middle_name","@id_number","@college_id","@program_id"};
         string[] values = {add_txtUserName.Text.ToString(),add_txtLastName.Text.ToString(),add_txtFirstName.Text.ToString(),add_txtMiddleName.Text.ToString(),add_txtIDNumber.Text.ToString(),add_ddlCollege.SelectedValue.ToString(),add_ddlProgram.SelectedValue.ToString()};
         ThesysController.QueryExecuteWithParameters(query,parameters,values);
