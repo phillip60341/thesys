@@ -18,6 +18,9 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
+
+        ThesysController.QueryExecuteWithParameters("sp_UserExpiryCheck", new string[0], new string[0]);
+
         string username = txtUserName.Text.ToString();
 
         byte[] hashedBytes;

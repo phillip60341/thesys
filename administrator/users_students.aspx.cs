@@ -123,7 +123,7 @@ public partial class administrator_users_students : System.Web.UI.Page
         string student_id = hdnStudentID.Value.ToString();
 
         //Response.Redirect(student_id);
-        string query = "UPDATE tblUsers SET active=0 WHERE id=" + student_id;
+        string query = "UPDATE tblUsers SET active=0,expiry_date=GETDATE() WHERE id=" + student_id;
         ThesysController.QueryExecuteWithParameters(query, new string[0], new string[0]);
         DisplayStudents(view_mode);
     }
@@ -204,7 +204,7 @@ public partial class administrator_users_students : System.Web.UI.Page
 
         HiddenField hdnStudentID = gv.Rows[e.RowIndex].FindControl("hdnStudentID") as HiddenField;
 
-        string query = "UPDATE tblUsers SET active=1 WHERE id=" + hdnStudentID.Value.ToString();
+        string query = "UPDATE tblUsers SET active=1,expiry_date=DATEADD(DAY,30,GETDATE()) WHERE id=" + hdnStudentID.Value.ToString();
         ThesysController.QueryExecuteWithParameters(query,new string[0],new string[0]);
         DisplayStudents(view_mode);
     }

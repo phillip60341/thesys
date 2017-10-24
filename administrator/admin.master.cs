@@ -20,8 +20,8 @@ public partial class administrator_admin : System.Web.UI.MasterPage
                 Response.Redirect("not_admin");
             }
         }
-
-        string full_name =ThesysController.GetStringFromQuery("SELECT CONCAT(last_name,', ',first_name) FROM v_Admins");
+        string user_id = (string)Session["user_id"];
+        string full_name =ThesysController.GetStringFromQuery("SELECT CONCAT(last_name,', ',first_name) FROM v_Admins WHERE id=" + user_id);
         lblUserFullName_Header.Text = full_name;
         lblUserFullName_Panel.Text = full_name;
         lblUserFullName_Sidebar.Text = full_name;

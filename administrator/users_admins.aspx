@@ -26,32 +26,37 @@
                     <table class="table table-bordered">
                         <tr>
                             <td>User Name</td>
-                            <td>
+                            <td> 
                                 <asp:TextBox ID="add_txtUserName" runat="server" CssClass="form-control"></asp:TextBox>
+                                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="add_txtUserName" SetFocusOnError="true" ErrorMessage="This field is required" Font-Size="X-Small" ForeColor="Red"/>--%>  
                             </td>
                         </tr>
                         <tr>
                             <td>Password</td>
                             <td>
                                 <asp:TextBox ID="add_txtPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="add_txtPassword" SetFocusOnError="true" ErrorMessage="This field is required" Font-Size="X-Small" ForeColor="Red"/>--%>
                             </td>
                         </tr>
                         <tr>
                             <td>First Name</td>
                             <td>
                                 <asp:TextBox ID="add_txtFirstName" runat="server" CssClass="form-control"></asp:TextBox>
+                                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="add_txtFirstName" SetFocusOnError="true" ErrorMessage="This field is required" Font-Size="X-Small" ForeColor="Red"/>--%>
                             </td>
                         </tr>
                         <tr>
                             <td>Middle Name</td>
                             <td>
                                 <asp:TextBox ID="add_txtMiddleName" runat="server" CssClass="form-control"></asp:TextBox>
+                                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="add_txtMiddleName" SetFocusOnError="true" ErrorMessage="This field is required" Font-Size="X-Small" ForeColor="Red"/>--%>
                             </td>
                         </tr>
                         <tr>
                             <td>Last Name</td>
                             <td>
                                 <asp:TextBox ID="add_txtLastName" runat="server" CssClass="form-control"></asp:TextBox>
+                                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="add_txtLastName" SetFocusOnError="true" ErrorMessage="This field is required" Font-Size="X-Small" ForeColor="Red" style="display:inline;"/>--%>
                             </td>
                         </tr>
                     </table>

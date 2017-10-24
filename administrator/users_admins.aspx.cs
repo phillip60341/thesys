@@ -51,36 +51,44 @@ public partial class administrator_users_admins : System.Web.UI.Page
 
     protected void btnAddAdministrator_Click(object sender, EventArgs e)
     {
-        string last_name, first_name, middle_name, username;
-        last_name = add_txtLastName.Text.ToString();
-        first_name = add_txtFirstName.Text.ToString();
-        middle_name = add_txtMiddleName.Text.ToString();
-        username = add_txtUserName.Text.ToString();
-
-        byte[] hashedBytes;
-        // PASSWORD
-        MD5CryptoServiceProvider md5Hasher = new MD5CryptoServiceProvider();
-        UTF8Encoding encoder = new UTF8Encoding();
-        hashedBytes = md5Hasher.ComputeHash(encoder.GetBytes(add_txtPassword.Text.ToString()));
-
-        string addQuery = "INSERT INTO tblUsers(user_name,last_name,first_name,middle_name,date_added,active,type) VALUES(@username,@last_name,@first_name,@middle_name,GETDATE(),1,'Admin')";
-        string[] addParameters = {"@username","@last_name","@first_name","@middle_name"};
-        string[] addValues = { username, last_name, first_name, middle_name };
-
-        ThesysController.QueryExecuteWithParameters(addQuery, addParameters, addValues);
-
-        using (SqlConnection con = new SqlConnection(ThesysController.ConnectionString))
+        if (Page.IsValid)
         {
-            string passwordquery = "INSERT INTO tblPasswords(user_id,password,active,datetime_added) VALUES((SELECT MAX(id) FROM tblUsers),@hashedBytes,1,GETDATE())";
-            SqlCommand command = new SqlCommand(passwordquery, con);
-            command.CommandType = CommandType.Text;
+            string last_name, first_name, middle_name, username;
+            last_name = add_txtLastName.Text.ToString();
+            first_name = add_txtFirstName.Text.ToString();
+            middle_name = add_txtMiddleName.Text.ToString();
+            username = add_txtUserName.Text.ToString();
 
-            command.Parameters.AddWithValue("@hashedBytes", hashedBytes);
-            con.Open();
-            command.ExecuteNonQuery();
+            byte[] hashedBytes;
+            // PASSWORD
+            MD5CryptoServiceProvider md5Hasher = new MD5CryptoServiceProvider();
+            UTF8Encoding encoder = new UTF8Encoding();
+            hashedBytes = md5Hasher.ComputeHash(encoder.GetBytes(add_txtPassword.Text.ToString()));
+
+            string addQuery = "INSERT INTO tblUsers(user_name,last_name,first_name,middle_name,date_added,active,type) VALUES(@username,@last_name,@first_name,@middle_name,GETDATE(),1,'Admin')";
+            string[] addParameters = { "@username", "@last_name", "@first_name", "@middle_name" };
+            string[] addValues = { username, last_name, first_name, middle_name };
+
+            ThesysController.QueryExecuteWithParameters(addQuery, addParameters, addValues);
+
+            using (SqlConnection con = new SqlConnection(ThesysController.ConnectionString))
+            {
+                string passwordquery = "INSERT INTO tblPasswords(user_id,password,active,datetime_added) VALUES((SELECT MAX(id) FROM tblUsers),@hashedBytes,1,GETDATE())";
+                SqlCommand command = new SqlCommand(passwordquery, con);
+                command.CommandType = CommandType.Text;
+
+                command.Parameters.AddWithValue("@hashedBytes", hashedBytes);
+                con.Open();
+                command.ExecuteNonQuery();
+            }
+
+            Response.Redirect("dashboard.aspx");
         }
-
-        Response.Redirect("dashboard.aspx");
+        else
+        {
+            add_txtUserName.Text = "Fill me";
+        }
+        
     }
 
     protected void gvActiveAdmins_RowEditing(object sender, GridViewEditEventArgs e)
