@@ -44,7 +44,23 @@
                                     Thesis File:
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="add_txtThesisFile" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:FileUpload ID="add_fuThesisFile" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Thesis Abstract:
+                                </td>
+                                <td>
+                                    <asp:FileUpload ID="add_fuThesisAbstract" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>]
+                                <td>
+                                    Year Accomplished:
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="add_txtYear" runat="server" MaxLength="4" CssClass="form-control"></asp:TextBox>
                                 </td>
                             </tr>
                          </table>
@@ -99,7 +115,7 @@
         <Columns>
             <asp:TemplateField HeaderText="Thesis Title">
                 <ItemTemplate>
-                    <asp:HiddenField ID="hdnThesisID" runat="server" Value='<%# Eval("id") %>' />
+                    <asp:HiddenField ID="hdnThesisID" runat="server" Value='<%# Eval("thesis_id") %>' />
                     <asp:Label ID="lblThesisTitle" runat="server" Text='<%# Eval("title") %>'></asp:Label>
                 </ItemTemplate>
                 <EditItemTemplate>
@@ -112,10 +128,25 @@
                     <asp:Label ID="lblThesisFile" runat="server" Text='<%# Eval("thesis_file") %>'></asp:Label>
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:TextBox ID="e_txtThesisFile" runat="server" Text='<%# Eval("thesis_file") %>'></asp:TextBox>
+                    <asp:FileUpload ID="e_fuThesisFile" runat="server"></asp:FileUpload>
                 </EditItemTemplate>
             </asp:TemplateField>
-
+            <asp:TemplateField HeaderText="Abstract">
+                <ItemTemplate>
+                    <asp:Image runat="server" src=""></asp:Image>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:FileUpload ID="e_fuThesisAbstract" runat="server" />
+                </EditItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Year">
+                <ItemTemplate>
+                    <asp:Label ID="lblYear" runat="server"></asp:Label>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:TextBox ID="e_txtYear" runat="server" MaxLength="4"></asp:TextBox>
+                </EditItemTemplate>
+            </asp:TemplateField>
             <asp:TemplateField HeaderText="Action">
                 <ItemTemplate>
                     <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="btn btn-sm btn-warning" CommandName="Edit"/>

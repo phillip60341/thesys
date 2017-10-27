@@ -62,7 +62,7 @@ public partial class administrator_thesis : System.Web.UI.Page
 
         thesis_id = add_txtThesisID.Text.ToString();
         title = add_txtThesisTitle.Text.ToString();
-        thesis_file = add_txtThesisFile.Text.ToString();
+        thesis_file = add_fuThesisFile.ToString();
 
         string addQuery = "INSERT INTO tblThesis(thesis_id, title, thesis_file) VALUES(@thesis_id, @title, @thesis_file)";
         string[] addParameters = { "@thesis_id", "@title", "@thesis_file" };
@@ -102,13 +102,13 @@ public partial class administrator_thesis : System.Web.UI.Page
 
         HiddenField e_hdnThesisID = (HiddenField)gv.Rows[e.RowIndex].FindControl("e_hdnThesisID");
         TextBox e_txtThesisTitle = (TextBox)gv.Rows[e.RowIndex].FindControl("e_txtThesisTitle");
-        TextBox e_txtThesisFile = (TextBox)gv.Rows[e.RowIndex].FindControl("_txtThesisFile");
+        FileUpload e_fuThesisFile = (FileUpload)gv.Rows[e.RowIndex].FindControl("_fuThesisFile");
 
         string thesis_id, thesis_title, thesis_file;
 
         thesis_id = e_hdnThesisID.Value.ToString();
         thesis_title = e_txtThesisTitle.Text.ToString();
-        thesis_file = e_txtThesisFile.Text.ToString();
+        thesis_file = e_fuThesisFile.ToString();
 
         string query = "UPDATE tblUsers SET thesis_id=@thesis_id,thesis_title=@thesis_title, WHERE thesis_id=@thesis_id";
         string[] updateparameters = { "@thesis_id", "@thesis_title", "@thesis_file" };
@@ -121,7 +121,6 @@ public partial class administrator_thesis : System.Web.UI.Page
 
     protected void gvThesis_RowArchiving(object sender, GridViewDeleteEventArgs e)
     {
-        Response.Redirect("RowArchiving");
         GridView gv = sender as GridView;
 
         HiddenField hdnThesisID = (HiddenField)gv.Rows[e.RowIndex].FindControl("hdnThesisID");
