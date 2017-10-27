@@ -12,7 +12,7 @@ using System.Web.UI.WebControls;
 public class ThesysController
 {
     //public static string ConnectionString = "Server=localhost;Database=thesys;User Id=thesys_system;Password=admin";
-    public static string ConnectionString = "Server=localhost\\SQLEXPRESS;Database=thesys;User Id=thesys_system;Password=admin";
+    public static string ConnectionString = "Server=localhost;Database=thesys;User Id=thesys_system;Password=admin";
     public static SqlConnection con = new SqlConnection(ConnectionString);
 
     public static DataSet BindData(string queryString)
